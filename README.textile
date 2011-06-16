@@ -1,0 +1,36 @@
+h1. Overview
+
+The libuic allows to programmatically control UI elements of OS-X applications. It provides the functionality to save UI elements, to perform a 'PRESS' action and to set the 'AXValue' attribute. The lib uses the mac OS-X "accessibility API":http://developer.apple.com/library/mac/#documentation/Accessibility/Reference/AccessibilityLowlevel/AXUIElement_h/CompositePage.html to control other applications.
+
+The apple developer tools provide an 'Accessibility Inspector' to explore 
+application UI elements: 
+<pre>
+open /Developer/Applications/Utilities/Accessibility\ Tools/Accessibility\ Inspector.app
+</pre>
+
+h1. Example
+
+<pre>
+uic::UIController uiController;
+
+// save UI element under the current mouse position
+uiController.saveUiElement(1);
+
+// perform 'PRESS' action for the last stored UI element
+uiController.performAction(1, uic::UIController::PRESS, false);
+</pre>
+
+Note: The included sample-app requires ncurses.
+
+h1. Build process
+
+# mkdir build
+# cd build
+# cmake ..
+# make
+
+h1. Documentation
+
+# cd build
+# make docs
+# open ../docs/doxygen/html/index.html
